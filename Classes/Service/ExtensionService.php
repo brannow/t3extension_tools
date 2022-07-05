@@ -36,7 +36,7 @@ class ExtensionService extends FrameworkExtensionService
      */
     public function isActionCacheable($extensionName, $pluginName, $controllerName, $actionName)
     {
-        if (!parent::isActionCacheable($extensionName, $pluginName, $controllerName, $actionName)) {
+        if (method_exists($this, 'isActionCacheable') && !parent::isActionCacheable($extensionName, $pluginName, $controllerName, $actionName)) {
             return false;
         }
 
